@@ -10,87 +10,89 @@ ho 0 tail 12 room 4
 load:0x40078000,len:15916
 load:0x40080400,len:3860
 entry 0x40080638
-I (659) boot: ESP-IDF v5.5.1 2nd stage bootloader
+I (660) boot: ESP-IDF v5.5.1 2nd stage bootloader
 I (660) boot: compile time Dec 27 2025 19:01:21
-I (660) boot: Multicore bootloader
-I (686) boot: chip revision: v0.0
-I (688) boot.esp32: SPI Speed      : 40MHz
-I (688) boot.esp32: SPI Mode       : DIO
-I (688) boot.esp32: SPI Flash Size : 2MB
-I (695) boot: Enabling RNG early entropy source...
-I (701) boot: Partition Table:
-I (701) boot: ## Label            Usage          Type ST Offset   Length
-I (701) boot:  0 nvs              WiFi data        01 02 00009000 00006000
-I (702) boot:  1 phy_init         RF data          01 01 0000f000 00001000
-I (702) boot:  2 factory          factory app      00 00 00010000 00100000
-I (705) boot: End of partition table
-I (728) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0d234h ( 53812) map
-I (743) esp_image: segment 1: paddr=0001d25c vaddr=3ffb0000 size=02560h (  9568) load
-I (754) esp_image: segment 2: paddr=0001f7c4 vaddr=40080000 size=00854h (  2132) load
-I (765) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1fedch (130780) map
-I (785) esp_image: segment 4: paddr=0003ff04 vaddr=40080854 size=0e160h ( 57696) load
-I (801) esp_image: segment 5: paddr=0004e06c vaddr=50000000 size=00020h (    32) load
-I (836) boot: Loaded app from partition at offset 0x10000
-I (836) boot: Disabling RNG early entropy source...
-I (849) cpu_start: Multicore app
-I (1401) cpu_start: Pro cpu start user code
-I (1402) cpu_start: cpu freq: 160000000 Hz
-I (1402) app_init: Application information:
-I (1403) app_init: Project name:     arduino_to_esp
-I (1403) app_init: App version:      1
-I (1403) app_init: Compile time:     Dec 27 2025 19:01:15
-I (1403) app_init: ELF file SHA256:  b720f6776...
-I (1403) app_init: ESP-IDF:          v5.5.1
-I (1403) efuse_init: Min chip rev:     v0.0
-I (1403) efuse_init: Max chip rev:     v3.99 
-I (1403) efuse_init: Chip rev:         v0.0
-I (1404) heap_init: Initializing. RAM available for dynamic allocation:
-I (1405) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
-I (1405) heap_init: At 3FFB34A8 len 0002CB58 (178 KiB): DRAM
-I (1405) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
-I (1405) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
-I (1406) heap_init: At 4008E9B4 len 0001164C (69 KiB): IRAM
-I (1422) spi_flash: detected chip: gd
-I (1428) spi_flash: flash io: dio
-W (1430) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
-I (1438) main_task: Started on CPU0
-I (1443) main_task: Calling app_main()
-I (1655) main_task: Returned from app_main()
-I (1657) uart: queue free spaces: 20
+I (661) boot: Multicore bootloader
+I (690) boot: chip revision: v0.0
+I (692) boot.esp32: SPI Speed      : 40MHz
+I (693) boot.esp32: SPI Mode       : DIO
+I (693) boot.esp32: SPI Flash Size : 2MB
+I (699) boot: Enabling RNG early entropy source...
+I (706) boot: Partition Table:
+I (706) boot: ## Label            Usage          Type ST Offset   Length
+I (706) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (707) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (707) boot:  2 factory          factory app      00 00 00010000 00100000
+I (711) boot: End of partition table
+I (736) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0d234h ( 53812) map
+I (752) esp_image: segment 1: paddr=0001d25c vaddr=3ffb0000 size=02560h (  9568) load
+I (764) esp_image: segment 2: paddr=0001f7c4 vaddr=40080000 size=00854h (  2132) load
+I (777) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1fee0h (130784) map
+I (799) esp_image: segment 4: paddr=0003ff08 vaddr=40080854 size=0e160h ( 57696) load
+I (815) esp_image: segment 5: paddr=0004e070 vaddr=50000000 size=00020h (    32) load
+I (862) boot: Loaded app from partition at offset 0x10000
+I (862) boot: Disabling RNG early entropy source...
+I (874) cpu_start: Multicore app
+I (1451) cpu_start: Pro cpu start user code
+I (1452) cpu_start: cpu freq: 160000000 Hz
+I (1452) app_init: Application information:
+I (1452) app_init: Project name:     arduino_to_esp
+I (1452) app_init: App version:      1
+I (1452) app_init: Compile time:     Dec 27 2025 19:01:15
+I (1452) app_init: ELF file SHA256:  7034abebf...
+I (1453) app_init: ESP-IDF:          v5.5.1
+I (1453) efuse_init: Min chip rev:     v0.0
+I (1453) efuse_init: Max chip rev:     v3.99 
+I (1453) efuse_init: Chip rev:         v0.0
+I (1454) heap_init: Initializing. RAM available for dynamic allocation:
+I (1455) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (1455) heap_init: At 3FFB34A8 len 0002CB58 (178 KiB): DRAM
+I (1455) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (1455) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (1456) heap_init: At 4008E9B4 len 0001164C (69 KiB): IRAM
+I (1473) spi_flash: detected chip: gd
+I (1478) spi_flash: flash io: dio
+W (1482) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (1490) main_task: Started on CPU0
+I (1495) main_task: Calling app_main()
+I (1715) main_task: Returned from app_main()
+I (1717) uart: queue free spaces: 20
+I
+T
+W
+O
 R
-I
+K
 S
-H
-I
-E (6657) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
-E (6657) task_wdt:  - IDLE1 (CPU 1)
-E (6657) task_wdt: Tasks currently running:
-E (6657) task_wdt: CPU 0: IDLE0
-E (6657) task_wdt: CPU 1: loopTask
-E (6657) task_wdt: Print CPU 1 backtrace
+E (6717) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (6717) task_wdt:  - IDLE1 (CPU 1)
+E (6717) task_wdt: Tasks currently running:
+E (6717) task_wdt: CPU 0: IDLE0
+E (6717) task_wdt: CPU 1: loopTask
+E (6717) task_wdt: Print CPU 1 backtrace
 
 
-Backtrace: 0x40083B4E:0x3FFB1730 0x40082A65:0x3FFB1750 0x400D89A8:0x3FFB7810 0x40086E35:0x3FFB7830
+Backtrace: 0x40083B4E:0x3FFB1730 0x40082A65:0x3FFB1750 0x400DBA68:0x3FFB77F0 0x400D89B1:0x3FFB7810 0x40086E35:0x3FFB7830
 
-E (11657) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
-E (11657) task_wdt:  - IDLE1 (CPU 1)
-E (11657) task_wdt: Tasks currently running:
-E (11657) task_wdt: CPU 0: IDLE0
-E (11657) task_wdt: CPU 1: loopTask
-E (11657) task_wdt: Print CPU 1 backtrace
-
-
-Backtrace: 0x40083B4E:0x3FFB1730 0x40082A65:0x3FFB1750 0x400EDCF4:0x3FFB77F0 0x400D89A8:0x3FFB7810 0x40086E35:0x3FFB7830
-
-E (16657) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
-E (16657) task_wdt:  - IDLE1 (CPU 1)
-E (16657) task_wdt: Tasks currently running:
-E (16657) task_wdt: CPU 0: IDLE0
-E (16657) task_wdt: CPU 1: loopTask
-E (16657) task_wdt: Print CPU 1 backtrace
+E (11718) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (11718) task_wdt:  - IDLE1 (CPU 1)
+E (11718) task_wdt: Tasks currently running:
+E (11718) task_wdt: CPU 0: IDLE0
+E (11718) task_wdt: CPU 1: loopTask
+E (11718) task_wdt: Print CPU 1 backtrace
 
 
-Backtrace: 0x40083B4E:0x3FFB1730 0x40082A65:0x3FFB1750 0x400EDCF1:0x3FFB7810 0x40086E35:0x3FFB7830
+Backtrace: 0x40083B4E:0x3FFB1730 0x40082A65:0x3FFB1750 0x400EDCF5:0x3FFB7810 0x40086E35:0x3FFB7830
+
+E (16718) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:
+E (16718) task_wdt:  - IDLE1 (CPU 1)
+E (16718) task_wdt: Tasks currently running:
+E (16718) task_wdt: CPU 0: IDLE0
+E (16718) task_wdt: CPU 1: loopTask
+E (16718) task_wdt: Print CPU 1 backtrace
+
+
+Backtrace: 0x40083B4E:0x3FFB1730 0x40082A65:0x3FFB1750 0x400DBA68:0x3FFB77F0 0x400D89B1:0x3FFB7810 0x40086E35:0x3FFB7830
 
 QEMU: Terminated
 
