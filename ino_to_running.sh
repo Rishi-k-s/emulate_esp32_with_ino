@@ -54,8 +54,22 @@ esptool.py --chip esp32 merge_bin -o "$FLASHABLE_BIN" \
 # This is optional, but truncating the image into 4MB so it will run without any errors in QEMU
 truncate -s 4M "$FLASHABLE_BIN"
 echo "Created flashable binary at $FLASHABLE_BIN"
+
+
 echo "Now emulating it via QEMU..."
 
 # Finally running it in QEMU
+
+set -e # Exit if it gets errors
+
 qemu-system-xtensa -nographic -machine esp32 \
-	-drive file=build/flash_image.bin,if=mtd,format=raw > output.txt 2>&1
+	-drive file=build/flash_image.bin,if=mtd,format=raw > output.txt 2>&1 &
+
+echo "QEMU PID: $QEMU_PID"
+
+QEMU_PID=$!
+
+sleep 6
+
+kill "$QEMU_PID"
+wait "$QEMU_PID" 2>/dev/null
