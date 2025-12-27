@@ -1,0 +1,2 @@
+source /home/rishi/devmt/arduino_to_esp/build/bootloader/gdbinit/symbols
+source /home/rishi/devmt/arduino_to_esp/build/bootloader/gdbinit/connect
