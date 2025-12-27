@@ -36,7 +36,7 @@ if [ -z "$IDF_PATH" ]; then
 fi
 
 # Build the project
-idf.py build
+idf.py build > build.log 2>&1
 
 
 # Now using esptools to merge the bootloader, partition table, and app binary to a flashable binary
@@ -49,7 +49,7 @@ FLASHABLE_BIN="build/flash_image.bin"
 esptool.py --chip esp32 merge_bin -o "$FLASHABLE_BIN" \
 	0x1000 "$BOOTLOADER_BIN" \
 	0x8000 "$PARTITION_TABLE_BIN" \
-	0x10000 "$APP_BIN"
+	0x10000 "$APP_BIN" >> build.log 2>&1
 
 # This is optional, but truncating the image into 4MB so it will run without any errors in QEMU
 truncate -s 4M "$FLASHABLE_BIN"
@@ -60,16 +60,24 @@ echo "Now emulating it via QEMU..."
 
 # Finally running it in QEMU
 
-set -e # Exit if it gets errors
+set -e
 
-qemu-system-xtensa -nographic -machine esp32 \
-	-drive file=build/flash_image.bin,if=mtd,format=raw > output.txt 2>&1 &
+PATTERN="task_wdt: Task watchdog got triggered"
+TIME_LIMIT=5
 
-echo "QEMU PID: $QEMU_PID"
+timeout "${TIME_LIMIT}s" qemu-system-xtensa -nographic -machine esp32 \
+  -drive file=build/flash_image.bin,if=mtd,format=raw \
+  > output.txt 2>&1 &
 
 QEMU_PID=$!
+echo "QEMU PID (timeout wrapper): $QEMU_PID"
 
-sleep 6
+while read -r line; do
+  if [[ "$line" == *"$PATTERN"* ]]; then
+    echo "Watchdog triggered, stopping QEMU"
+    kill "$QEMU_PID"
+    break
+  fi
+done < <(tail --pid="$QEMU_PID" -Fn0 output.txt)
 
-kill "$QEMU_PID"
 wait "$QEMU_PID" 2>/dev/null
