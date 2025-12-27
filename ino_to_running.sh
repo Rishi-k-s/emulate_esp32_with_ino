@@ -79,5 +79,11 @@ while read -r line; do
     break
   fi
 done < <(tail --pid="$QEMU_PID" -Fn0 output.txt)
+sed -n '/uart: queue free spaces/,${
+/uart: queue free spaces/d
+$d
+p
+}' output.txt > filtered_output.txt
+
 
 wait "$QEMU_PID" 2>/dev/null
